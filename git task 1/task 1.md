@@ -192,6 +192,82 @@ git commit -m "Added workflow example"
 
 
 
+# PART 2: WORKING WITH REPOSITORIES-
+
+
+## TASK 7: Branching and Merging-
+
+### step 1: Create a New Branch for a Feature:
+To create a new branch for a feature, use the following commands:
+```bash
+ git branch feature-login
+```
+
+Swtich to newly created branch by using  `checkout`
+```bash
+git checkout feature-login
+```
+
+Alternatively we can create and swtich to other branch using 
+```bash
+git checkout -b feature-login
+```
+
+This command creates a new branch called feature-login and switches to it, where you'll add your feature
+
+### Step 2: Add a new file and commit changes:
+
+create a new file and commit it to the feature-login branch. 
+
+```bash
+echo "Login Page" > login.html 
+```
+
+then we add the file to the stagin area that is to comitted by using 
+
+```bash
+git add login.html
+```
+
+
+Commit the changes with a descriptive message:
+
+```bash
+git commit -m "Added login page"
+```
+
+
+### Step 3: Merge the feature branch into main
+
+it's time to merge it back into the main branch.
+
+1. Switch to the main branch:
+```bash
+git checkout main
+```
+
+
+2. Merge the feature-login branch into main:
+
+```bash
+git merge feature-login
+```
+
+
+
+
+
+
+## task 8:  Handling Merge Conflicts
+
+### Step 1: Create two branches:
+
+
+
+
+
+
+
 
 
 
