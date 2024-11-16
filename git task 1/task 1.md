@@ -262,6 +262,185 @@ git merge feature-login
 
 ### Step 1: Create two branches:
 
+`Merge conflicts` occur when Git cannot automatically resolve changes made to the same part of a file in different branches
+
+Start by creating two branches:
+```bash
+git branch branch-A
+git branch branch-B
+```
+### Step 2: Modify the Same Line in Both Branches
+
+1. Switch to branch-A and edit README.md:
+```bash
+git checkout branch-A
+echo "This is branch-A content" > README.md
+git add README.md
+git commit -m "Added content from branch-A"
+```
+
+2. Switch to branch-B and edit the same line in README.md
+
+```bash
+git checkout branch-B
+echo "This is branch-B content" > README.md
+git add README.md
+git commit -m "Added content from branch-B"
+```
+
+
+### Step 3: Merge branch-A into main
+
+1. Switch to the main branch:
+
+```bash
+git checkout main
+```
+
+2. Merge branch-A into main:
+
+```bash
+git merge branch-A
+```
+
+At this point, the changes from branch-A are successfully merged into main.
+
+
+### Step 4: Attempt to Merge branch-B into main
+
+1. While on the main branch, merge branch-B
+
+
+```bash
+git merge branch-B
+```
+This will result in a merge conflict because both branch-A and branch-B modified the same line in README.md.
+
+## Step 5: Resolve the Merge Conflict
+
+Stage the resolved file:
+
+```bash 
+git add README.md
+```
+
+commit the resolved file:
+
+```bash
+git commit -m "Resolved merge conflict between branch-A and branch-B"
+```
+
+
+
+
+# Task 9: Renaming and Deleting Branches-
+
+## Renaming a branch :-
+
+To rename an existing branch:
+
+```bash
+git branch -m old-branch-name new-branch-name
+```
+
+-m: This flag stands for "move" or "rename."
+
+## Deleting a Branch
+To delete a branch that is no longer needed:
+
+```bash
+git branch -d branch-name
+```
+-d: This deletes the branch only if it has been fully merged into the current branch or its parent.
+
+
+
+
+
+
+# Part 3: Advanced Git Operations
+
+## Task 10: Using Git Stash
+
+
+### Step 1: Make Changes Without Committing-
+
+Create a file in your working Directory 
+```bash
+echo "Temporary work" >> temp.md
+```
+## Step 2: Stash the Changes-
+
+git stash is a Git command used to temporarily save (stash) changes in your working directory that you don't want to commit yet.
+
+Save your uncommitted changes (both staged and unstaged) in a stash:
+
+```bash
+git stash 
+```
+
+### Step 3: View Stashed Changes
+Check the list of all stashes saved in your repository:
+
+
+```bash
+git stash list
+```
+
+### 4. Apply Stashed Changes
+
+Reapply the most recent stash to your working directory without removing it from the stash list:
+
+
+```bash
+git stash apply
+```
+
+### 5. Drop the Stash After Applying
+
+Remove the applied stash from the stash list:
+
+```bash
+git stash drop
+
+```
+
+
+
+
+
+
+
+## Task 11: Rewriting History with Interactive Rebase
+
+### Create multiple commits:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
