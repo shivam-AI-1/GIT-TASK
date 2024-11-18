@@ -413,7 +413,238 @@ git stash drop
 
 ## Task 11: Rewriting History with Interactive Rebase
 
-### Create multiple commits:
+### Step 1: Create multiple commits:
+
+Start by creating three separate commits to demonstrate the process:
+
+
+**Create the first commit**
+```bash
+echo "Commit 1" > file1.txt && git add file1.txt && git commit -m "Commit 1"
+```
+
+**Create the second commit**
+
+```bash
+echo "Commit 2" > file2.txt && git add file2.txt && git commit -m "Commit 2"
+```
+
+**Create the third commit**
+```bash
+echo "Commit 3" > file3.txt && git add file3.txt && git commit -m "Commit 3"
+```
+
+### Step 2: Start an interactive rebase
+
+To combine the last three commits into one, use the following command:
+```bash
+git rebase -i HEAD~3
+```
+This opens an interactive editor displaying the last three commits.
+
+**To squash commits, replace the word pick with squash for the second and third commits:**
+```bash
+pick <hash1> Commit 1
+squash <hash2> Commit 2
+squash <hash3> Commit 3
+```
+
+Save and close the editor.
+
+
+
+
+
+
+# Task 12: Cherry-Picking Commits
+
+### 1. Create a New Branch
+
+Before cherry-picking, create a new branch to work on:
+
+```bash 
+git checkout -b cherry-pick-example
+```
+This switches to a new branch named cherry-pick-example.
+
+### 2. Cherry-pick a specific commit from another branch:
+
+To cherry-pick a specific commit:
+
+```bash
+git cherry-pick <commit-hash>
+```
+
+Replace `commit-hash` with the hash of the commit you want to apply.
+
+
+
+
+
+
+# Task 13: Tagging Commits
+
+**Tagging in Git is used to mark specific points in your commit history, often for marking release versions (e.g., v1.0, v2.0).**
+
+#### Step 1: Tag the Current Commit
+
+To tag the latest commit:
+```bash
+git tag -a v1.0 -m "Version 1.0 release"
+```
+
+`v1.0`: The name of the tag.
+
+`-m "Version 1.0 release"`: A message describing the purpose of the tag.
+
+`-a`:Annotated tags store additional information , such as The tagger's name, Email , The date the tag was created, A message describing the tag's purpose.
+
+### Step 2:Push the tag to the remote repository:
+After creating a tag locally, you need to push it to the remote repository:
+
+``` bash
+git push origin v1.0
+```
+
+This pushes the tag v1.0 to the remote repository.
+
+
+# Task 14: Working with Remote Repositories
+
+### Step 1: Add a remote repository:
+
+To link your local repository to a remote one, use the `git remote add` command.
+
+```bash
+git remote add <name> <repository-url>
+```
+
+`origin:` The default name for the remote repository.
+`repository-url:` The URL of the remote repository (e.g., GitHub, GitLab).
+
+
+### Step 2: Push your changes to the remote repository:
+
+
+After adding the remote, push your changes to it using git push.
+
+```bash
+git push origin main
+```
+
+`origin:` Refers to the remote repository added earlier.
+`main:` The branch to which you are pushing changes.
+
+
+
+
+
+
+# Task 15: Forking and Contributing
+
+
+## Step 1: Fork a Repository on GitHub
+1. Navigate to the repository you want to contribute to on GitHub.
+2. Click the **Fork** button at the top-right of the page.
+3. Select your GitHub account to create a copy of the repository in your account.
+
+## Step 2: Clone the Forked Repository Locally
+After forking the repository, clone it to your local machine to start working on it.
+
+```bash
+git clone <forked-repo-url>
+```
+
+## Step 3: Create a New Branch for Your Changes
+
+This helps to keep the main branch clean and organized.
+
+```bash
+git checkout -b fix-typo
+```
+## Step 4: Make Changes and Commit
+
+After switching to your new branch, make the necessary changes to the files, and commit them.
+
+```bash
+echo "Typo fixed" >> README.md
+git add README.md
+git commit -m "Fixed a typo"
+```
+
+## Step 5: Push Your Changes to the Forked Repository
+
+Once your changes are committed, push them to your remote forked repository on GitHub.
+
+```bash
+git push origin fix-typo
+```
+
+## Open a Pull Request (PR)
+
+1. Go to your forked repository on GitHub.
+2. You will see a Compare & Pull Request button. Click it.
+3. Provide a meaningful title and description for your changes.
+4. Submit the pull request to the original repository.
+
+
+
+
+
+
+
+
+# Task 17: Git Ignore
+
+## Step 1: Create a .gitignore file:
+
+To create a .gitignore file that ignores specific files (like node_modules/), you can use the following command:
+
+```bash
+echo "node_modules/" > .gitignore
+```
+
+This will create a .gitignore file and add node_modules/ to it, which tells Git to ignore the node_modules directory.
+
+## Step 2: Add files and ensure ignored files are not staged:
+
+After creating the .gitignore file, you can add the files in your repository, but files listed in .gitignore (like node_modules/) will not be staged. To add the files that are not ignored, use:
+
+```bash
+git add .
+```
+This will add all files that are not ignored by .gitignore to the staging area.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
